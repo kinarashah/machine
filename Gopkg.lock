@@ -28,18 +28,21 @@
   revision = "d6e3b3328b783f23731bc4d058875b0371ff8109"
 
 [[projects]]
-  digest = "1:7119b0c081a1995d08827e697a94447a922dd57ec4b55962c91cc64c81f363a3"
+  digest = "1:f6be05c789de8d4fe490d1a7dab6fce033d51924873493be58091119d206170d"
   name = "github.com/Azure/go-autorest"
   packages = [
     "autorest",
+    "autorest/adal",
     "autorest/azure",
     "autorest/date",
     "autorest/to",
     "autorest/validation",
+    "logger",
+    "tracing",
   ]
   pruneopts = "UT"
-  revision = "0781901f19f1e7db3034d97ec57af753db0bf808"
-  version = "v7.2.1"
+  revision = "3492b2aff5036c67228ab3c7dba3577c871db200"
+  version = "v13.3.0"
 
 [[projects]]
   digest = "1:12342a2c200bc1fbafd739172f425af3b93377718dcd2013e9ccce97be48271b"
@@ -130,11 +133,12 @@
   revision = "5215b55f46b2b919f50a1df0eaa5886afe4e3b3d"
 
 [[projects]]
-  digest = "1:02630c70b55ecda2dcb85805170923d8389c632487568ccffadc5482e8a191ed"
+  digest = "1:76dc72490af7174349349838f2fe118996381b31ea83243812a97e5a0fd5ed55"
   name = "github.com/dgrijalva/jwt-go"
   packages = ["."]
   pruneopts = "UT"
-  revision = "24c63f56522a87ec5339cc3567883f1039378fdb"
+  revision = "06ea1031745cb8b3dab3f6a236daf2b0aa468b7e"
+  version = "v3.2.0"
 
 [[projects]]
   digest = "1:b41bcd468fe0882b4cd1591274dc6d007dc3c947758f34807c83200899637e4f"
@@ -173,6 +177,70 @@
   packages = ["."]
   pruneopts = "UT"
   revision = "0bbddae09c5a5419a8c6dcdd7ff90da3d450393b"
+
+[[projects]]
+  digest = "1:d0f8cbedbf5c1f7d94a17f11ea324de636c4ba6cbee003ab11df5e1e689354c6"
+  name = "github.com/docker/machine"
+  packages = [
+    "commands",
+    "commands/commandstest",
+    "commands/mcndirs",
+    "drivers/amazonec2",
+    "drivers/azure",
+    "drivers/azure/azureutil",
+    "drivers/azure/logutil",
+    "drivers/digitalocean",
+    "drivers/driverutil",
+    "drivers/errdriver",
+    "drivers/exoscale",
+    "drivers/fakedriver",
+    "drivers/generic",
+    "drivers/google",
+    "drivers/hyperv",
+    "drivers/none",
+    "drivers/openstack",
+    "drivers/rackspace",
+    "drivers/softlayer",
+    "drivers/virtualbox",
+    "drivers/vmwarefusion",
+    "drivers/vmwarevcloudair",
+    "drivers/vmwarevsphere",
+    "its",
+    "libmachine",
+    "libmachine/auth",
+    "libmachine/cert",
+    "libmachine/check",
+    "libmachine/crashreport",
+    "libmachine/drivers",
+    "libmachine/drivers/plugin",
+    "libmachine/drivers/plugin/localbinary",
+    "libmachine/drivers/rpc",
+    "libmachine/engine",
+    "libmachine/host",
+    "libmachine/hosttest",
+    "libmachine/libmachinetest",
+    "libmachine/log",
+    "libmachine/mcndockerclient",
+    "libmachine/mcnerror",
+    "libmachine/mcnflag",
+    "libmachine/mcnutils",
+    "libmachine/persist",
+    "libmachine/provision",
+    "libmachine/provision/pkgaction",
+    "libmachine/provision/provisiontest",
+    "libmachine/provision/serviceaction",
+    "libmachine/shell",
+    "libmachine/ssh",
+    "libmachine/ssh/sshtest",
+    "libmachine/state",
+    "libmachine/swarm",
+    "libmachine/version",
+    "libmachine/versioncmp",
+    "version",
+  ]
+  pruneopts = "UT"
+  revision = "9ba6da9ebd1140b65eb73e1ce08086ca72764c60"
+  version = "v0.13.0"
 
 [[projects]]
   digest = "1:be3684b202ef360bfe6cfa59b03b1258900936bab3fe47584ccd63d73c461858"
@@ -464,6 +532,61 @@
     "github.com/digitalocean/godo",
     "github.com/diskfs/go-diskfs/filesystem/iso9660",
     "github.com/docker/docker/pkg/term",
+    "github.com/docker/machine/commands",
+    "github.com/docker/machine/commands/commandstest",
+    "github.com/docker/machine/commands/mcndirs",
+    "github.com/docker/machine/drivers/amazonec2",
+    "github.com/docker/machine/drivers/azure",
+    "github.com/docker/machine/drivers/azure/azureutil",
+    "github.com/docker/machine/drivers/azure/logutil",
+    "github.com/docker/machine/drivers/digitalocean",
+    "github.com/docker/machine/drivers/driverutil",
+    "github.com/docker/machine/drivers/errdriver",
+    "github.com/docker/machine/drivers/exoscale",
+    "github.com/docker/machine/drivers/fakedriver",
+    "github.com/docker/machine/drivers/generic",
+    "github.com/docker/machine/drivers/google",
+    "github.com/docker/machine/drivers/hyperv",
+    "github.com/docker/machine/drivers/none",
+    "github.com/docker/machine/drivers/openstack",
+    "github.com/docker/machine/drivers/rackspace",
+    "github.com/docker/machine/drivers/softlayer",
+    "github.com/docker/machine/drivers/virtualbox",
+    "github.com/docker/machine/drivers/vmwarefusion",
+    "github.com/docker/machine/drivers/vmwarevcloudair",
+    "github.com/docker/machine/drivers/vmwarevsphere",
+    "github.com/docker/machine/its",
+    "github.com/docker/machine/libmachine",
+    "github.com/docker/machine/libmachine/auth",
+    "github.com/docker/machine/libmachine/cert",
+    "github.com/docker/machine/libmachine/check",
+    "github.com/docker/machine/libmachine/crashreport",
+    "github.com/docker/machine/libmachine/drivers",
+    "github.com/docker/machine/libmachine/drivers/plugin",
+    "github.com/docker/machine/libmachine/drivers/plugin/localbinary",
+    "github.com/docker/machine/libmachine/drivers/rpc",
+    "github.com/docker/machine/libmachine/engine",
+    "github.com/docker/machine/libmachine/host",
+    "github.com/docker/machine/libmachine/hosttest",
+    "github.com/docker/machine/libmachine/libmachinetest",
+    "github.com/docker/machine/libmachine/log",
+    "github.com/docker/machine/libmachine/mcndockerclient",
+    "github.com/docker/machine/libmachine/mcnerror",
+    "github.com/docker/machine/libmachine/mcnflag",
+    "github.com/docker/machine/libmachine/mcnutils",
+    "github.com/docker/machine/libmachine/persist",
+    "github.com/docker/machine/libmachine/provision",
+    "github.com/docker/machine/libmachine/provision/pkgaction",
+    "github.com/docker/machine/libmachine/provision/provisiontest",
+    "github.com/docker/machine/libmachine/provision/serviceaction",
+    "github.com/docker/machine/libmachine/shell",
+    "github.com/docker/machine/libmachine/ssh",
+    "github.com/docker/machine/libmachine/ssh/sshtest",
+    "github.com/docker/machine/libmachine/state",
+    "github.com/docker/machine/libmachine/swarm",
+    "github.com/docker/machine/libmachine/version",
+    "github.com/docker/machine/libmachine/versioncmp",
+    "github.com/docker/machine/version",
     "github.com/exoscale/egoscale",
     "github.com/rackspace/gophercloud",
     "github.com/rackspace/gophercloud/openstack",
