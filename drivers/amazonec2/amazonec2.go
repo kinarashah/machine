@@ -105,6 +105,7 @@ type Driver struct {
 	InstanceType     string
 	OS               string
 	PrivateIPAddress string
+	PrivateDnsName   string
 
 	// NB: SecurityGroupId expanded from single value to slice on 26 Feb 2016 - we maintain both for host storage backwards compatibility.
 	SecurityGroupId  string
@@ -872,6 +873,15 @@ func (d *Driver) innerCreate() error {
 
 	if instance.PrivateIpAddress != nil {
 		d.PrivateIPAddress = *instance.PrivateIpAddress
+	}
+
+	log.Infof("Machine: instance.PrivateDnsName %s %s", *instance.PrivateDnsName, *instance.PrivateIpAddress)
+
+	ans, _ := json.Marshal(*instance)
+	log.Infof("Machine: instance %s", string(ans))
+
+	if instance.PrivateDnsName != nil {
+		d.PrivateDnsName = *instance.PrivateDnsName
 	}
 
 	if err := d.waitForInstance(); err != nil {
